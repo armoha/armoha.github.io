@@ -235,9 +235,9 @@ EOF
 
 Which is included by a headerline in templates/base.html:
 
-`
+```
 <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) | safe }}">
-`
+```
 
 Step 10
 --
