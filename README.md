@@ -101,3 +101,27 @@ cat >> templates/index.html <<EOF
 
 Watching the browser shows that the "Nothing"-page shows up as an item in an unordered list.
 
+Step 05
+--
+
+I want a subsection
+
+```
+mkdir content/things
+cat > content/things/_index.md << EOF
++++
+title = "Things"
++++
+
+More things
+--
+
+EOF
+```
+
+The subsection doesnt show up as a page in "/" and manually navigating to [http://127.0.0.1:1111/things/](http://127.0.0.1:1111/things/) shows that section.html is missing:
+
+```
+cp templates/index.html templates/section.html
+```
+
