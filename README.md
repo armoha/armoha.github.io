@@ -85,3 +85,19 @@ EOF
 
 Which shows Nothing twice, once from the meta data `page.title`, another from the markdown part.
 
+Step 04
+--
+
+Navigating back to the main page shows that i have no hint, that "Nothing" exists. I can add links to all pages in this directory. A directory is called "section" in zola. A section can contain multiple pages and we can iterate over those:
+
+```
+cat >> templates/index.html <<EOF
+<ul>
+	{% for page in section.pages %}
+		<li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+	{% endfor %}
+</ul>
+```
+
+Watching the browser shows that the "Nothing"-page shows up as an item in an unordered list.
+
