@@ -35,5 +35,25 @@ EOF
 
 and in the browser the page reloads without any intervention. Nice!
 
+Step 02
+--
+
+Thats more or less static html serving - where does my content come in? The "index"-page is called `_index` in the content space:
+```
+cat > content/_index.md <<EOF
++++
+title = "Anything"
++++
+EOF
+```
+
+if i now adapt the template accordingly the title switches:
+
+```
+cat > templates/index.html <<EOF
+<h1>{{ section.title }}</h1>
+
+EOF
+```
 
 
