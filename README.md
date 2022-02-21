@@ -324,7 +324,13 @@ to `templates/index.html` and `templates/section.html` to be able to navigate to
 Step 12
 --
 
-I played around with search but didnt get any results yet (hints welcome).
+For search to work i enabled it in `config.toml`:
+
+```
+build_search_index = true
+```
+
+added `static/search.js` and `sass/_search.scss` from (https://github.com/getzola/zola/blob/master/docs/), added `@import "search";` to `sass/site.scss`. Finally i added the box to `templates/base.html`.
 
 
 Disclaimer
