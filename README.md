@@ -209,3 +209,28 @@ for n in templates/index.html templates/page.html templates/section.html; do (
 done
 ```
 
+Step 09
+--
+
+I want some styling:
+
+```
+cat > sass/site.scss <<EOF
+body {
+	background-color: #444;
+	color: #ccc;
+	font-family: Lucida Console, Liberation Mono, DejaVu Sans Mono, monospace;
+}
+
+a {
+	color: #e90;
+}
+EOF
+```
+
+Which is included by a headerline in templates/base.html:
+
+`
+<link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) | safe }}">
+`
+
