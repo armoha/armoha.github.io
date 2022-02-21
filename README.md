@@ -173,3 +173,39 @@ EOF
 
 It will show up in [http://127.0.0.1:1111/things/](http://127.0.0.1:1111/things/).
 
+Step 08
+--
+
+I want templates! This is the base for all my pages:
+
+```
+cat > templates/base.html <<EOF
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Thingieworld</title>
+	</head>
+	<body>
+		<section>
+			<div>
+				{% block content %}
+				{% endblock %}
+			</div>
+		</section>
+	</body>
+</html>
+EOF
+```
+
+Now i need to surround my html files with the extends & block commands:
+
+```
+for n in templates/index.html templates/page.html templates/section.html; do (
+	echo '{% extends 'base.html' %}'
+	echo '{% block content %}'
+	cat $n
+	echo '{% endblock content %}' ) > x
+	mv x $n
+done
+```
+

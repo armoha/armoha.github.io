@@ -1,3 +1,5 @@
+{% extends base.html %}
+{% block content %}
 <h1>{{ section.title }}</h1>
 <ul>
 	{% for page in section.pages %}
@@ -11,3 +13,4 @@
 	{% endfor %}
 </ul>
 
+{% endblock content %}
