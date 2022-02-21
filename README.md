@@ -332,6 +332,17 @@ build_search_index = true
 
 added `static/search.js` and `sass/_search.scss` from (https://github.com/getzola/zola/blob/master/docs/), added `@import "search";` to `sass/site.scss`. Finally i added the box to `templates/base.html`.
 
+Step 13
+--
+
+I enabled code highlighting, this is straight forward in `config.toml`:
+
+```
+[markdown]
+highlight_code = true
+```
+
+and adding a sample in `content/nothing.md`.
 
 Disclaimer
 --
