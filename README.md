@@ -321,6 +321,12 @@ i added
 
 to `templates/index.html` and `templates/section.html` to be able to navigate to "taxonomy_list". I didnt find out a way to programmatically retrieve the url and thus hardcoded it to be "/tags/" (hints welcome).
 
+Step 12
+--
+
+I played around with search but didnt get any results yet (hints welcome).
+
+
 Disclaimer
 --
 
