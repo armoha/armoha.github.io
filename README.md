@@ -154,3 +154,22 @@ cat >> templates/section.html <<EOF
 EOF
 ```
 
+Step 07
+--
+
+I can now add some more content:
+
+```
+cat > content/things/everything.md <<EOF
++++
+title = "Everything"
++++
+
+This is every thing
+==
+
+EOF
+```
+
+It will show up in [http://127.0.0.1:1111/things/](http://127.0.0.1:1111/things/).
+
