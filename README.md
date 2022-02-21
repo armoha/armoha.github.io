@@ -260,3 +260,8 @@ EOF
 
 The browser shows the links in different lists (i added header lines inbetween the lists for better visibility, see above).
 
+Disclaimer
+--
+
+zolaschool is licensed under ![https://creativecommons.org/licenses/by-sa/4.0/](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)
+
