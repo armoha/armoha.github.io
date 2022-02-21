@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>{{ section.title }}</h1>
+<h2>Pages:</h2>
 <ul>
 	{% for page in section.pages %}
 		<li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
 	{% endfor %}
 </ul>
+<h2>Sections:</h2>
 <ul>
 	{% for subsection in section.subsections %}
 		{% set sub = get_section(path=subsection, metadata_only=true) %}
 		<li><a href="{{ sub.permalink | safe }}">{{ sub.title }}</a></li>
 	{% endfor %}
 </ul>
-
 {% endblock content %}

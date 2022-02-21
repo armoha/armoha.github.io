@@ -92,6 +92,7 @@ Navigating back to the main page shows that i have no hint, that "Nothing" exist
 
 ```
 cat >> templates/index.html <<EOF
+<h2>Pages:</h2>
 <ul>
 	{% for page in section.pages %}
 		<li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
@@ -132,6 +133,7 @@ The initial page doesnt show the subsections, we can add that ability:
 
 ```
 cat >> templates/index.html <<EOF
+<h2>Sections:</h2>
 <ul>
 	{% for subsection in section.subsections %}
 		{% set sub = get_section(path=subsection, metadata_only=true) %}
@@ -145,6 +147,7 @@ And i did the same for sections:
 
 ```
 cat >> templates/section.html <<EOF
+<h2>Sections:</h2>
 <ul>
 	{% for subsection in section.subsections %}
 		{% set sub = get_section(path=subsection, metadata_only=true) %}
@@ -220,6 +223,8 @@ body {
 	background-color: #444;
 	color: #ccc;
 	font-family: Lucida Console, Liberation Mono, DejaVu Sans Mono, monospace;
+	padding: 2em;
+	margin: 2em;
 }
 
 a {
@@ -233,4 +238,25 @@ Which is included by a headerline in templates/base.html:
 `
 <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) | safe }}">
 `
+
+Step 10
+--
+
+Special section / page handling is done when using _index or index files in a directory. An `_index` file denotes a subsection while an `index` file is just another page. A file like `a.md` is the same page as `a/index.md`. I created both cases:
+
+```
+mkdir content/a content/b
+cat > content/a/index.md <<EOF
++++
+title = "a"
++++
+EOF
+cat > content/b/_index.md <<EOF
++++
+title = "b"
++++
+EOF
+```
+
+The browser shows the links in different lists (i added header lines inbetween the lists for better visibility, see above).
 
