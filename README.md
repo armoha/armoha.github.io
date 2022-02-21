@@ -11,13 +11,13 @@ zola init zolaschool
 cd zolaschool
 ```
 
-it creates the directory structure needed and a config file. I just pressed enter to use the default settings. After that you can run a server to deliver the pages with:
+it creates the directory structure needed and a config file. I just pressed enter to use the default settings. After that i can run a server to deliver the pages with:
 
 ```
 zola serve
 ```
 
-if you visit [http://127.0.0.1:1111/](http://127.0.0.1:1111/) you read:
+if i visit [http://127.0.0.1:1111/](http://127.0.0.1:1111/) i read:
 
 > To modify this page, create a index.html file in the templates directory
 
