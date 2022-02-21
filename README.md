@@ -39,6 +39,7 @@ Step 02
 --
 
 Thats more or less static html serving - where does my content come in? The "index"-page is called `_index` in the content space:
+
 ```
 cat > content/_index.md <<EOF
 +++
@@ -52,8 +53,35 @@ if i now adapt the template accordingly the title switches:
 ```
 cat > templates/index.html <<EOF
 <h1>{{ section.title }}</h1>
+EOF
+```
+
+Step 03
+--
+
+More content files in the same directory are pages, the content is formulated in markdown with a meta data header surrounded by "+++". The syntax of the meta data is toml:
+
+```
+cat > content/nothing.md <<EOF
++++
+title = "Nothing"
++++
+
+Nothing
+==
 
 EOF
 ```
 
+if i navigate to [http://127.0.0.1:1111/nothing](http://127.0.0.1:1111/nothing) zola tells me `page.html` is missing:
+
+```
+cat > templates/page.html <<EOF
+<h1> {{ page.title }} </h1>
+{{ page.content | safe }}
+
+EOF
+```
+
+Which shows Nothing twice, once from the meta data `page.title`, another from the markdown part.
 
