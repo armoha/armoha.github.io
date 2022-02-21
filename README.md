@@ -125,3 +125,32 @@ The subsection doesnt show up as a page in "/" and manually navigating to [http:
 cp templates/index.html templates/section.html
 ```
 
+Step 06
+--
+
+The initial page doesnt show the subsections, we can add that ability:
+
+```
+cat >> templates/index.html <<EOF
+<ul>
+	{% for subsection in section.subsections %}
+		{% set sub = get_section(path=subsection, metadata_only=true) %}
+		<li><a href="{{ sub.permalink | safe }}">{{ sub.title }}</a></li>
+	{% endfor %}
+</ul>
+EOF
+```
+
+And i did the same for sections:
+
+```
+cat >> templates/section.html <<EOF
+<ul>
+	{% for subsection in section.subsections %}
+		{% set sub = get_section(path=subsection, metadata_only=true) %}
+		<li><a href="{{ sub.permalink | safe }}">{{ sub.title }}</a></li>
+	{% endfor %}
+</ul>
+EOF
+```
+
