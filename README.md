@@ -201,7 +201,7 @@ Now i need to surround my html files with the extends & block commands:
 
 ```
 for n in templates/index.html templates/page.html templates/section.html; do (
-	echo '{% extends 'base.html' %}'
+	echo '{% extends "base.html" %}'
 	echo '{% block content %}'
 	cat $n
 	echo '{% endblock content %}' ) > x
