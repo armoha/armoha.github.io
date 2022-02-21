@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block content %}
+	<h1> All tags </h1>
+	{% if terms %}
+		{% for term in terms %}
+			<p><a href="{{ term.permalink | safe }}">{{ term.name }}</a> ({{ term.pages | length }} pages)</p>
+		{% endfor %}
+	{% endif %}
+{% endblock content %}

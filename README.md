@@ -260,6 +260,67 @@ EOF
 
 The browser shows the links in different lists (i added header lines inbetween the lists for better visibility, see above).
 
+Step 11
+--
+
+I enabled a taxonomy of "tags" in config by adding
+
+```
+taxonomies = [
+	{name = "tags"},
+]
+```
+
+into the main section of `config.toml`. Two templates to render taxonomies are needed:
+
+```
+cat > templates/taxonomy_single.html <<EOF
+{% extends "base.html" %}
+{% block content %}
+	<h1>{{ term.name }}</h1>
+	{% for page in term.pages %}
+		<a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+	{% endfor %}
+{% endblock content %}
+EOF
+cat > templates/taxonomy_list.html <<EOF
+{% extends "index.html" %}
+{% block content %}
+	{% if terms %}
+		{% for term in terms %}
+			<p><a href="{{ term.permalink | safe }}">{{ term.name }}</a> ({{ term.pages | length }})</p>
+		{% endfor %}
+	{% endif %}
+{% endblock content %}
+EOF
+```
+
+and in `templates/page.html` i added a footer with the tags of that page:
+
+```
+<h2>Tags:</h2>
+{% if page.taxonomies.tags %}
+	{% for tag in page.taxonomies.tags %}
+		<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a>
+	{% endfor %}
+{% endif %}
+```
+
+finally i added a taxonomy "tags" to `content/nothing.md` and `content/things/everything.md`:
+
+```
+[taxonomies]
+tags = ["thing", "no"]
+```
+
+i added
+
+```
+	<a href="/tags/">all tags</a>
+```
+
+to `templates/index.html` and `templates/section.html` to be able to navigate to "taxonomy_list". I didnt find out a way to programmatically retrieve the url and thus hardcoded it to be "/tags/" (hints welcome).
+
 Disclaimer
 --
 
