@@ -1,5 +1,6 @@
 +++
 title = "Nothing"
+date = "2022-01-22"
 
 [taxonomies]
 tags = ["thing", "no"]

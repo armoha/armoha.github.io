@@ -344,6 +344,17 @@ highlight_code = true
 
 and adding a sample in `content/nothing.md`.
 
+Step 14
+--
+
+I enabled feeds in `config.toml` with:
+
+```
+generate_feed = true
+```
+
+i did not see any entries (i even got a 404) without having a date like `date = "2022-01-22"` in one of the pages metadata. That correspondends to the doc and seems to be obvious. Auto detection if feeds can be achieved by the right header line in the html which i added to `templates/base.html`.
+
 Disclaimer
 --
 
