@@ -360,6 +360,10 @@ Step 15
 
 The `robots.txt` can be templated and served from `templates/`.
 
+Step 16
+--
+
+Adding a `templates/404.html` gives arbitrary Error-Pages.
 
 Disclaimer
 --
