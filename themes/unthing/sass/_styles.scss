@@ -1,13 +1,12 @@
 body {
-	background-color: #444;
-	color: #ccc;
+	background-color: $b-color;
+	color: $f-color;
 	font-family: Lucida Console, Liberation Mono, DejaVu Sans Mono, monospace;
 	padding: 2em;
 	margin: 2em;
 }
 
 a {
-	color: #e90;
+	color: $a-color;
 }
 
-@import "search";

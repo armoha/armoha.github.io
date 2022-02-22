@@ -365,6 +365,48 @@ Step 16
 
 Adding a `templates/404.html` gives arbitrary Error-Pages.
 
+Step 17
+--
+
+Themes arent themes :) - those are just base structures that can be overwritten by a site. Basically a theme is the same as a site, so i copied my site into a theme:
+
+```
+cd themes
+zola init unthing
+cd unthing
+cat > theme.toml <<EOF
+name = "unthing"
+description = "A old school theme"
+license = "MIT"
+homepage = "https://codeberg.org/mdt/zolaschool"
+min_version = "0.4.0"
+demo = ""
+
+[extra]
+
+[author]
+name = "My Self"
+homepage = "https://me"
+
+EOF
+rmdir content
+rm config.toml
+cd ../..
+mv static/* themes/unthing/static
+mv sass/* themes/unthing/sass
+mv templates/* themes/unthing/templates
+```
+
+and i added
+
+```
+theme = "unthing"
+```
+
+to my `config.toml`. Thats it: The page shows up unchanged.
+
+So i started playing. I tried to have colors in my scss separated and only change the colors by providing that single file with the colors on the sites `sass/`. This doesnt work [https://github.com/getzola/zola/issues/837](https://github.com/getzola/zola/issues/837), a sccs and its includes seem to be a block which must be replaced alltogether or not.
+
 Disclaimer
 --
 

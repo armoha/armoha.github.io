@@ -1,0 +1,14 @@
+name = "unthing"
+description = "A old school theme"
+license = "MIT"
+homepage = "https://codeberg.org/mdt/zolaschool"
+min_version = "0.4.0"
+demo = ""
+
+[extra]
+
+[author]
+name = "My Self"
+homepage = "https://me"
+
+
