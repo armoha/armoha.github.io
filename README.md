@@ -405,7 +405,9 @@ theme = "unthing"
 
 to my `config.toml`. Thats it: The page shows up unchanged.
 
-So i started playing. I tried to have colors in my scss separated and only change the colors by providing that single file with the colors on the sites `sass/`. This doesnt work [https://github.com/getzola/zola/issues/837](https://github.com/getzola/zola/issues/837), a sccs and its includes seem to be a block which must be replaced alltogether or not.
+So i started playing: I tried to have colors in my scss separated and only change the colors by providing that single file with the colors on the sites `sass/`. This doesnt work [https://github.com/getzola/zola/issues/837](https://github.com/getzola/zola/issues/837), a sccs and its includes seem to be a block which must be replaced alltogether or not.
+
+Same works for the templates: I added a `templates/base.html` with a different title and while `themes/unthing/templates/section.html` loads it uses as base templates/base.html`. Nice!
 
 Disclaimer
 --
